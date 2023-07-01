@@ -1,0 +1,70 @@
+.footer-container {
+  background-color: #e3ebf9;
+  .footer_section {
+    background-image: url(https://www.thelotter.com/App_Themes/Default/images/Footer/desktop-background-footer.png?v=20230402);
+    background-repeat: no-repeat;
+    background-position: bottom;
+    justify-content: center;
+    min-height: 0;
+    min-width: 1248px;
+    padding-bottom: 16px;
+    .footer__details_container {
+      padding: 40px 20%;
+      .footer_social_icons {
+        width: 940px;
+        display: flex;
+        justify-content: space-between;
+        .footer__apps {
+          width: 300px;
+        }
+      }
+      .footer_social_app {
+        width: 300px;
+        display: flex;
+        justify-content: space-between;
+      }
+      .footer_text {
+        line-height: 25px;
+        font-weight: normal;
+        font-size: 14px;
+        color: #4f5a69;
+        font-family: inherit;
+      }
+      .link_text {
+        cursor: pointer;
+        font-size: 12px;
+        display: flex;
+        color: #004cc6;
+        text-decoration: underline;
+        svg {
+          font-size: 18px;
+          margin-right: 4px;
+        }
+      }
+      .footer_table_container {
+        margin-top: 40px;
+        width: 508px;
+        th {
+          font-size: 17px;
+          font-weight: bold;
+          height: 30px;
+          color: #4f5a69;
+        }
+        td {
+          font-size: 16px;
+          color: #4f5a69;
+          text-decoration: none;
+          font-weight: normal;
+          margin: 0px;
+          padding-top: 10px !important;
+          font-family: inherit;
+        }
+        td,
+        th {
+          padding: 0px;
+          border: none;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,90 @@
+.header_main_container {
+  .pointer {
+    cursor: pointer;
+  }
+  height: 80px;
+  margin-bottom: 30px;
+  .header-content-wrapper {
+    width: 100%;
+    .header_background {
+      height: 64px;
+      background: linear-gradient(to right, #ffffff 50%, #f9f9f9 50%);
+      width: 100%;
+      box-shadow: 0px 6px 10px rgba(13, 29, 51, 0.14);
+      z-index: -1;
+      position: absolute;
+    }
+    .header_container {
+      max-width: 1248px;
+      min-width: 1227px;
+      background-color: #f9f9f9 !important;
+      margin: 0 auto;
+      .header_seaction {
+        height: 64px;
+        min-width: fit-content;
+        background-color: #ffffff;
+        position: relative;
+        padding-right: 29px;
+        border-radius: 0 100px 100px 0;
+        box-shadow: 10px 0px 10px -4px rgba(13, 29, 51, 0.14);
+        display: inline-flex;
+        z-index: 1000;
+        ul {
+          display: flex;
+          list-style-type: none;
+          align-items: center;
+          padding: 0 !important;
+          font-weight: 600;
+          cursor: pointer;
+          .active_head_tab {
+            color: #004cc6 !important;
+          }
+          .active_head_tab:after {
+            background: #004cc6;
+            border-radius: 100px;
+            height: 4px;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            top: 46px;
+            content: "";
+          }
+        }
+      }
+      .header_auth_section {
+        float: right;
+        ul {
+          display: flex;
+          list-style-type: none;
+          // padding: 0 !important;
+          margin: 0 !important;
+          li {
+            box-shadow: 0 6px 10px 0 rgba(113, 113, 113, 0.14);
+            border-radius: 80px;
+            background-color: #ffffff;
+            cursor: pointer;
+            font-size: 14px;
+          }
+        }
+        .header_auth_button {
+          padding: 22px;
+          height: 40px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin: 0 !important;
+        }
+        .lanuage__button {
+          margin-left: 10px;
+          width: fit-content;
+          .wallet_amount {
+            font-size: 14px;
+            font-weight: bold;
+            margin-left: 5px;
+          }
+        }
+      }
+    }
+  }
+}

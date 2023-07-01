@@ -1,0 +1,16 @@
+.wallet___button {
+  position: relative;
+  margin: 10px auto;
+  .text___wallet {
+    font-size: 20px;
+    width: 200px;
+    text-align: center;
+    font-weight: 500;
+    position: absolute;
+    background: #0070ba;
+    color: white;
+    z-index: 9999;
+    left: 35%;
+    top: 14%;
+  }
+}

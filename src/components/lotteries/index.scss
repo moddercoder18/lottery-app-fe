@@ -1,0 +1,131 @@
+.lottery__list__container {
+  display: flex;
+  flex-direction: column;
+  th {
+    font-size: 16px;
+    font-weight: 700;
+    padding: 10px 20px !important;
+  }
+
+  .active_numbers {
+    width: max-content;
+    display: flex !important;
+    justify-content: space-between;
+    // padding: 10px;
+    // flex-direction: column;
+    .text_lines {
+      display: flex;
+      align-items: center;
+      margin: px 0px;
+      div {
+        width: 30px;
+        height: 30px;
+        margin: 0px 5px;
+        border: 1px solid #4d7fa2;
+        background-color: #4d7fa2;
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+    .power_number {
+      div {
+        border: 1px solid #d55858;
+        background-color: #d55858;
+      }
+    }
+  }
+}
+
+.lottery__result__list__id {
+  width: 800px;
+  .heading {
+    font-size: 28px;
+    line-height: 40px;
+    font-weight: 700;
+  }
+  th {
+    font-size: 16px;
+    font-weight: 700;
+    padding: 10px 20px !important;
+  }
+  td {
+    padding: 7px;
+    border-bottom: none;
+  }
+  .lottery__result {
+    width: max-content;
+    display: flex !important;
+    justify-content: space-between;
+    .text_lines {
+      display: flex;
+      align-items: center;
+      margin: px 0px;
+      div {
+        width: 20px;
+        height: 20px;
+        font-size: 10px;
+        margin: 0px 5px;
+        border: 1px solid #4d7fa2;
+        // background-color: #4d7fa2;
+        // color: white;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+    .power_number {
+      div {
+        border: 1px solid #d55858;
+        color: #b90404;
+        background-color: #eddddd;
+      }
+    }
+  }
+}
+.info_first_child {
+  width: 36%;
+  color: #4f5a69 !important;
+  font-weight: 700 !important;
+  font-size: 14px !important;
+}
+.lottery___menu___title {
+  display: flex;
+  .section {
+    width: 33%;
+    font-weight: 700;
+    padding: 0px 30px;
+  }
+}
+
+.lottery___menu {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  .section {
+    width: 33%;
+  }
+}
+.lottery__sub__menu {
+  display: flex;
+  height: 42px;
+  align-items: center;
+  border-bottom: 1px solid #e9e3e3;
+  .sub_section {
+    width: 10%;
+  }
+  .winner__text {
+    margin-left: 60px;
+    color: #004cc6;
+    font-size: 20px;
+    font-weight: 600;
+  }
+}
+.verification_text {
+  font-size: 20px;
+  font-weight: 700 !important;
+  color: #004cc6;
+}
