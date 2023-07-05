@@ -4,7 +4,7 @@ import './index.scss';
 import logo from '../../assets/images/lottery_logo.png'
 import LoginDialog from '../auth/login_dialog';
 import { useLocation, useNavigate } from 'react-router-dom';
-import LanguageIcon from '@mui/icons-material/Language';
+import TranslateIcon from '@mui/icons-material/Translate';
 import PersonOutlinedIcon from '@mui/icons-material/PersonOutlined';
 import AccountBalanceWalletOutlinedIcon from '@mui/icons-material/AccountBalanceWalletOutlined';
 import Menu from '@mui/material/Menu';
@@ -54,7 +54,7 @@ const HeaderSection = () => {
             <Box className='header_seaction'>
               <List>
                 <ListItem onClick={() => navigate('/lottery-tickets')}>
-                  <Box component={'img'} src={logo} alt='logo' width={'100px'}  className='pointer' />
+                  <Box component={'img'} src={logo} alt='logo' width={'100px'} className='pointer' />
                 </ListItem>
                 <ListItem onClick={() => handleChange('lottery-results')}
                   className={pathname.includes('lottery-results') ? "active_head_tab" : ''}>
@@ -96,7 +96,7 @@ const HeaderSection = () => {
                 </Menu>
 
                 <ListItem aria-controls={openLanguage ? 'basic-language' : undefined} className='lanuage__button' onClick={(event) => setAnchorE2(event?.currentTarget)}>
-                  <LanguageIcon />
+                  <TranslateIcon />
                 </ListItem>
 
                 <Menu
@@ -109,13 +109,14 @@ const HeaderSection = () => {
                   }}
                 >
                   <MenuItem data-my-value={'en'} onClick={handleLanguage}>English</MenuItem>
-                  <MenuItem data-my-value={'zh'} onClick={handleLanguage}>中国人</MenuItem>
-                  <MenuItem data-my-value={'ko'} onClick={handleLanguage}>한국인</MenuItem>
-                  <MenuItem data-my-value={'ja'} onClick={handleLanguage}>日本</MenuItem>
-                  <MenuItem data-my-value={'vi'} onClick={handleLanguage}>Tiếng Việt</MenuItem>
-                  <MenuItem data-my-value={'fil'} onClick={handleLanguage}>Pilipino</MenuItem>
-                  <MenuItem data-my-value={'ms'} onClick={handleLanguage}>Melayu</MenuItem>
-                  <MenuItem data-my-value={'hi'} onClick={handleLanguage}>हिंदी</MenuItem>
+                  <MenuItem data-my-value={'hi'} onClick={handleLanguage}>हिंदी (Hindi)</MenuItem>
+                  <MenuItem data-my-value={'zh'} onClick={handleLanguage}>中国人 (Chinese)</MenuItem>
+                  <MenuItem data-my-value={'ko'} onClick={handleLanguage}>한국인 (Korean)</MenuItem>
+                  <MenuItem data-my-value={'ja'} onClick={handleLanguage}>日本 (Japanese)</MenuItem>
+                  <MenuItem data-my-value={'vi'} onClick={handleLanguage}>Tiếng Việt (Vietnamese)</MenuItem>
+                  <MenuItem data-my-value={'fil'} onClick={handleLanguage}>Pilipino (Filipino)</MenuItem>
+                  <MenuItem data-my-value={'ms'} onClick={handleLanguage}>Melayu (Malay)</MenuItem>
+                  <MenuItem data-my-value={'id'} onClick={handleLanguage}>Indonesia (Indonesia)</MenuItem>
                 </Menu>
               </List>
             </Box>

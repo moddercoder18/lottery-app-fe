@@ -1,0 +1,107 @@
+{
+    "key": {
+      "lotteries": "Lotere",
+      "login": "Gabung",
+      "signup": "Mendaftar",
+      "profile": "Profil",
+      "my_account": "Akun saya",
+      "my_tickets": "Tiket Saya",
+      "result_tickets": "Tiket Hasil",
+      "logout": "Keluar",
+      "title": "Beli Tiket Lotre Online",
+      "sub_title": "Beli tiket lotre online untuk lotere internasional teratas. Bermain dengan aman dan aman untuk jackpot terbesar di seluruh dunia dari kenyamanan rumah.",
+      "lines": "Garis",
+      "line": "Garis",
+      "lottery": "Lotre",
+      "jackpot": "Jackpot",
+      "next_draw": "Undian Berikutnya",
+      "million": "Milyun",
+      "billion": "Bilyun",
+      "days": "Hari",
+      "choose": "Memilih",
+      "ticket_price": "Harga tiket",
+      "total": "Total",
+      "service_fee": "Biaya jasa",
+      "discount": "Diskon",
+      "play": "Bermain",
+      "quick_pick": "Pilihan cepat",
+      "systemic": "Sistematis",
+      "numbers": "Angka",
+      "email": "Surel",
+      "password": "Kata sandi",
+      "name": "Nama",
+      "submit": "Kirim",
+      "back": "Kembali",
+      "update": "Memperbarui",
+      "date": "Tanggal",
+      "results": "Hasil",
+      "info":"Info",
+      "status": "Status",
+      "winner":"Pemenang!!",
+      "update_pwd":"Ganti kata sandi",
+      "new_password":"Kata sandi baru",
+      "old_password":"Password lama"
+    },
+    "login": {
+      "title": "Masuk ke akun Anda",
+      "login": "Gabung",
+      "forgot_password": "Lupa kata sandi ku",
+      "or": "Atau",
+      "not_register": "Belum terdaftar?",
+      "create_new": "Buat Akun gratis"
+    },
+    "titles": {
+      "forgot_pwd": "Tidak ingat kata sandi",
+      "forgot_pwd_subtitle": "Untuk mengatur ulang kata sandi Anda, masukkan alamat email Anda di bawah ini. Kami akan mengirimi Anda tautan untuk membuat kata sandi baru dengan aman untuk akun Anda.",
+      "personal_details": "Data pribadi",
+      "account_status": "Status akun",
+      "customer_lottery": "Daftar Lotre Pelanggan",
+      "lottery_result": "Periksa Hasil Lotre Online",
+      "lottery_result_subtitle": "Hasil lotre diperbarui sepanjang waktu! Bandingkan nomor yang ditarik seperti yang ditunjukkan di bawah ini dengan yang ada di tiket Anda untuk melihat apakah Anda memenangkan hadiah!",
+      "wallet_transaction": "Transaksi Dompet",
+      "t_date": "Tanggal transaksi",
+      "amount": "Jumlah",
+      "t_type": "Tipe transaksi",
+      "t_id": "ID transaksi",
+      "lottery_name": "Nama Lotre"
+    },
+    "signup": {
+      "title": "Buka Akun GRATIS Anda",
+      "t&c": "Saya telah membaca dan menerima Pemberitahuan Privasi.",
+      "promotion_emails": "Ya, saya ingin menerima email promosi dengan penawaran dan diskon eksklusif!",
+      "registered": "Sudah terdaftar?",
+      "click_here": "Klik disini",
+      "to_login": "untuk masuk",
+      "country": "Negara"
+    },
+    "error": {
+      "email": "Email wajib diisi.",
+      "name": "Nama wajib diisi.",
+      "password": "Kata sandi wajib diisi.",
+      "country": "Negara wajib diisi.",
+      "no_data": "Hasil tidak ditemukan"
+    },
+    "lottery_result": {
+      "latest": "Terbaru",
+      "title": "Hasil Lama Daring",
+      "winning_number": "Angka Kemenangan",
+      "prize_break": "Perincian Hadiah",
+      "match": "Cocok",
+      "lottery_info": "Informasi Lotre",
+      "schedule": "Jadwal",
+      "jackpot_type": "Jenis Jackpot",
+      "cash": "UANG TUNAI"
+    },
+    "message": {
+      "coming_soon": "Segera hadir",
+      "in_verification": "Lotere dalam verifikasi!",
+      "waiting_msg": "Gambar ini sekarang sudah berakhir. Tunggu undian berikutnya, ya."
+    },
+    "coupon": {
+      "promo_code": "Kode promosi",
+      "coupons": "Kupon",
+      "coupon_placeholder": "Masukkan kode kupon",
+      "apply_coupon": "Terapkan Kupon"
+    }
+  }
+  

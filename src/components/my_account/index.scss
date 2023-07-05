@@ -1,12 +1,13 @@
 .container {
   display: flex;
   flex-direction: column;
+  padding: 10px 40px;
   .coupon____copy{
     display: flex;
     justify-content: space-between;
   }
   .account_conatainer {
-    margin: 20px auto;
+    margin: 20px 0px;
     // width: 300px;
     .profile__img {
       width: 150px;

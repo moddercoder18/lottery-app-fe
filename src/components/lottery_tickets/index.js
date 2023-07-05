@@ -9,7 +9,6 @@ import { handleDynamicContent, handleLotteryAction } from '../../redux/actions/l
 import { useTranslation } from "react-i18next";
 import PrizeConverter from '../../utils/prizeConverter';
 import './index.scss';
-import moment from 'moment';
 
 const LotteryTicket = () => {
   const { t } = useTranslation();
@@ -54,16 +53,16 @@ const LotteryTicket = () => {
                     <TableCell>
                       <Box className='lottery_table_amount'>
                         {data?.winningPrice ? <PrizeConverter className={'lottery_table_amount_length'} n={data?.winningPrice} />
-                        : `${t('key.jackpot')} Pending`}
+                          : `${t('key.jackpot')} Pending`}
                       </Box>
                     </TableCell>
-                    <TableCell>
+                    <TableCell sx={{ width: '180px' }}>
                       {/* {moment(data?.endDate).format('DD')} */}
-                      {new Date(data?.endDate) > new Date() ?  <CountDown
+                      {new Date(data?.endDate) > new Date() ? <CountDown
                         date={data?.endDate}
-                      />: <Box>
-                          {`${t('message.waiting_msg')}`}
-                        </Box>}
+                      /> : <Box>
+                        {`${t('message.waiting_msg')}`}
+                      </Box>}
                     </TableCell>
                   </TableRow>)}
               </TableBody>
@@ -75,12 +74,25 @@ const LotteryTicket = () => {
         </Grid>
         <Divider sx={{ mt: 3, mb: 6 }} />
       </Box >
-      <Grid className='lottery_sections'>
+      <Grid className='lottery_sections' sx={{ display: { xs: 'none', sm: 'none', md: 'flex' } }}>
         <Box className='top_lottery_container'>
-          <Box component={'img'} src={'https://www.thelotter.com/objects/dm.tlo?id=29430&v=20230402'}
-            width={'60px'} height={'60px'} />
+          <Box component={'img'} src={'https://www.thelotter.com/objects/dm.tlo?id=29430&v=20230402'} />
           <Box className='top_lottery_text_description'>
             <PrizeConverter className={'length'} n={state?.lotteries?.[0]?.winningPrice} />
+          </Box>
+        </Box>
+      </Grid>
+      <Grid className='lottery_sections_mobile' sx={{ display: { xs: 'flex', sm: 'flex', md: 'none' } }}>
+        <Box className='top_lottery_container'>
+          <Box component={'img'} src={'https://www.thelotter.com/objects/dm.tlo?id=29430&v=20230402'} />
+          <Box className='top_lottery_text_description'>
+            {/* <Typography className='lottery_title'>{state?.lotteries?.[0]?.name}</Typography> */}
+            <PrizeConverter className={'length'} n={state?.lotteries?.[0]?.winningPrice} />
+            {new Date(state?.lotteries?.[0]?.endDate) > new Date() ? <CountDown
+              date={state?.lotteries?.[0]?.endDate}
+            /> : <Box>
+              {`${t('message.waiting_msg')}`}
+            </Box>}
           </Box>
         </Box>
       </Grid>

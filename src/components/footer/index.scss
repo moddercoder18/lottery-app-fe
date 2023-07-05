@@ -6,12 +6,18 @@
     background-position: bottom;
     justify-content: center;
     min-height: 0;
-    min-width: 1248px;
     padding-bottom: 16px;
+    margin: auto;
+    @media only screen and (min-width: 900px) {
+      width: 1008px;
+    }
+    @media only screen and (min-width: 300px) and (max-width: 900px) {
+      flex-direction: column-reverse !important;
+      width: 700px;
+    }
     .footer__details_container {
-      padding: 40px 20%;
+      padding: 40px 5%;
       .footer_social_icons {
-        width: 940px;
         display: flex;
         justify-content: space-between;
         .footer__apps {

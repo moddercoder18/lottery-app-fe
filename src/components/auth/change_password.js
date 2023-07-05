@@ -41,13 +41,13 @@ const ChangePassword = () => {
                 noValidate
                 onSubmit={formik?.handleSubmit}
             >
-                <Grid container sx={{ display: 'flex', mt: 2 }}>
+                <Grid container sx={{ display: 'flex', mt: 2, justifyContent: 'space-between' }}>
                     <Grid item lg={4}>
-                        <Typography className='text_gray'>{t('key.old_password')} : 
+                        <Typography className='text_gray'>{t('key.old_password')} :
                             <Typography variant='span' sx={{ color: 'red' }}> *</Typography>
                         </Typography>
                     </Grid>
-                    <Grid item lg={4}>
+                    <Grid item lg={8} className='forget_pwd_sub'>
                         <OutlinedInput size='small' name='oldPassword' onChange={formik?.handleChange} />
                         {formik.errors?.oldPassword && (
                             <FormHelperText htmlFor="form-selector" error={!!formik.errors?.oldPassword}>
@@ -56,13 +56,13 @@ const ChangePassword = () => {
                         )}
                     </Grid>
                 </Grid>
-                <Grid container sx={{ display: 'flex', mt: 2 }}>
+                <Grid container sx={{ display: 'flex', mt: 2, justifyContent: 'space-between' }}>
                     <Grid item lg={4}>
                         <Typography className='text_gray'>{t('key.new_password')} :
                             <Typography variant='span' sx={{ color: 'red' }}> *</Typography>
                         </Typography>
                     </Grid>
-                    <Grid item lg={4}>
+                    <Grid item lg={8} className='forget_pwd_sub'>
                         <OutlinedInput size='small' name='newPassword' onChange={formik?.handleChange} />
                         {formik.errors?.newPassword && (
                             <FormHelperText htmlFor="form-selector" error={!!formik.errors?.newPassword}>

@@ -65,12 +65,16 @@
     cursor: pointer;
     overflow: hidden;
     background-size: 100%;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
+    img {
+      width: 80px;
+      height: 80px;
+    }
     .top_lottery_text_description {
       color: #ffffff;
       font-size: 16px;
-      line-height: 10px;
+      line-height: 13px;
       display: flex;
       align-items: flex-end;
       .length {
@@ -82,8 +86,59 @@
     }
   }
 }
+.lottery_sections_mobile {
+  padding-left: 19px;
+  padding-right: 19px;
+  margin-bottom: 20px !important;
+  margin: auto;
+  width: 95%;
+  background-color: #ffffff;
+  .top_lottery_container {
+    border-radius: 20px;
+    width: 700px;
+    height: 180px;
+    display: flex;
+    background-image: url(https://lottery-win.org/APIBanners/190_120_RBE_Uplifting.png);
+    font-weight: 400;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    overflow: hidden;
+    background-size: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+    img {
+      width: 150px;
+      height: 150px;
+    }
+    .top_lottery_text_description {
+      height: inherit;
+      color: #ffffff;
+      font-size: 16px;
+      line-height: 13px;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      justify-content: space-evenly;
+      .lottery_title {
+        font-size: 30px;
+        font-weight: 600;
+      }
+      .length {
+        margin: 0px 4px;
+        font-size: 55px;
+        font-weight: 700;
+        line-height: 0.66 !important;
+      }
+      .counter__text {
+        font-weight: 700;
+        font-size: 20px;
+      }
+    }
+  }
+}
 .lottery_details_container {
   width: 100%;
+  padding: 30px;
   .lottery_details_container_heading {
     font-size: 28px;
     line-height: 40px;
@@ -98,7 +153,7 @@
     padding: 22px 0 3px 0;
     .lottery_banner_join {
       flex-basis: 30%;
-      margin-left: 46px;
+      // margin-left: 46px;
     }
     .lottery_banner_other {
       display: flex;
@@ -149,6 +204,12 @@
           img {
             width: 119px;
           }
+        }
+        .lottery_banner_container {
+          display: flex;
+          width: 70%;
+          justify-content: center;
+          align-items: center;
         }
         .lottery_banner_text {
           width: 40%;
@@ -246,6 +307,7 @@
         line-height: 13px;
         text-decoration: underline;
         color: #004cc6;
+        font-size: 0.90rem;
       }
       .active_tab {
         color: #3f3f3f !important;
@@ -306,17 +368,17 @@
       }
     }
   }
-  .coupon_div{
+  .coupon_div {
     display: flex;
     flex-direction: row;
-    button{
+    button {
       width: max-content;
       margin-left: 20px;
       text-transform: capitalize;
     }
   }
   .play-request-summary {
-    width: 961px;
+    // width: 961px;
     border: 1px solid #cdcdcd;
     background-color: #f7f7f7;
     margin-top: 15px;
@@ -343,7 +405,7 @@
           color: #4f5a69;
           font-size: 16px;
         }
-        .highlight{
+        .highlight {
           color: #004cc6 !important;
         }
       }

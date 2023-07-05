@@ -15,10 +15,16 @@
       position: absolute;
     }
     .header_container {
-      max-width: 1248px;
-      min-width: 1227px;
+      // max-width: 1248px;
       background-color: #f9f9f9 !important;
       margin: 0 auto;
+      @media only screen and (min-width: 900px) {
+        width: 1008px;
+      }
+      @media only screen and (min-width: 300px) and (max-width: 900px) {
+        flex-direction: column-reverse !important;
+        width: 700px;
+      }
       .header_seaction {
         height: 64px;
         min-width: fit-content;
@@ -36,6 +42,9 @@
           padding: 0 !important;
           font-weight: 600;
           cursor: pointer;
+          li{
+            width: auto;
+          }
           .active_head_tab {
             color: #004cc6 !important;
           }
@@ -54,6 +63,7 @@
       }
       .header_auth_section {
         float: right;
+        margin-right: 49px;
         ul {
           display: flex;
           list-style-type: none;

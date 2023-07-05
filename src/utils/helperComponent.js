@@ -4,7 +4,7 @@ import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 export const bannerImages = () => {
     return (
         <Grid container className='ticket_details_banner' >
-            <Grid item className='lottery_banner_join'>
+            <Grid item className='lottery_banner_join' sx={{ ml: { sm: 0 , md:4} }}>
                 <Box component={'img'} alt='image_section' src={'https://www.thelotter.com/objects/dm.tlo?id=29476&v=20230402'} />
             </Grid>
             <Grid item className='lottery_banner_other'>

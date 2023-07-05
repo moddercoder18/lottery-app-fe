@@ -16,7 +16,7 @@ const DynamicPage = () => {
         dispatch(handleDynamicContent(page))
     }, [page, dispatch])
     return (
-        <Box dangerouslySetInnerHTML={{ __html: `${t(state?.dynamicContent?.content[window.localStorage.getItem('language')|| 'en'])}` }}></Box>
+        <Box sx={{ p: 2 }} dangerouslySetInnerHTML={{ __html: `${t(state?.dynamicContent?.content[window.localStorage.getItem('language') || 'en'])}` }}></Box>
     )
 }
 

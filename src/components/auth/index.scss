@@ -8,6 +8,10 @@
   padding-left: 19px;
   padding-right: 20px;
 
+  .forget_pwd_sub{
+    display: flex;
+    flex-direction: column;
+  }
   .forgot_pwd_heading {
     font-size: 28px;
     line-height: 40px;

@@ -50,7 +50,8 @@ const WalletTransaction = () => {
                                             <TableCell>{moment(data?.createdAt).format('MMMM Do YYYY, h:mm:ss a')}</TableCell>
                                             <TableCell sx={{ display: 'flex' }}>
                                                 <Typography className={activeClass}>{debit ? '-' : '+'}</Typography>
-                                                <PrizeConverter n={data?.amount} className={activeClass} /></TableCell>
+                                                <PrizeConverter n={data?.amount} className={activeClass} />
+                                            </TableCell>
                                             <TableCell><Typography>{firstCapital(data?.transactionType)}</Typography></TableCell>
                                         </TableRow>
                                     })}

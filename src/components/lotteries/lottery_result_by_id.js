@@ -12,7 +12,7 @@ import { useTranslation } from 'react-i18next';
 const LotteryResultById = () => {
     const dispatch = useDispatch();
     const { id } = useParams();
-    const {t} = useTranslation()
+    const { t } = useTranslation()
 
     const loadingState = useSelector(state => state?.LotteryReducer)
     const state = useSelector(state => state?.LotteryReducer?.lotteryById)
@@ -35,7 +35,7 @@ const LotteryResultById = () => {
                     <Grid className='loader_container'>
                         <CircularProgress size={100} />
                     </Grid> :
-                    <Box className="lottery__result__list__id">
+                    <Box className="lottery__result__list__id" sx={{ width: { md: '800px' } }}>
                         <Typography className='heading'>{t('lottery_result.latest')} {t('key.results')} {state?.name} </Typography>
                         <Typography sx={{ mt: 1 }}>{t('lottery_result.winning_number')}</Typography>
                         {(state?.winningNumbers?.numberslength > 0) ? <Box className='lottery__result' sx={{ mt: 2 }}>

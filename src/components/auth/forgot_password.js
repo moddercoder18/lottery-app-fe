@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Layout from '../hoc/layout';
-import { Box, Button, CircularProgress, Grid, OutlinedInput, Typography } from '@mui/material'
+import { Box, Button, CircularProgress, FormHelperText, Grid, OutlinedInput, Typography } from '@mui/material'
 import './index.scss';
 import { useFormik } from "formik";
 import * as yup from "yup";
@@ -54,20 +54,30 @@ const ForgotPassword = () => {
                         noValidate
                         onSubmit={formik?.handleSubmit}
                     >
-                        <Grid container sx={{ display: 'flex', mt: 2 }}>
+                        <Grid container sx={{ display: 'flex', mt: 2, justifyContent: 'space-between' }}>
                             <Grid item lg={4}>
                                 <Typography className='text_gray'>{t('key.email')}: <Typography variant='span' sx={{ color: 'red' }}>*</Typography></Typography>
                             </Grid>
-                            <Grid item lg={4}>
+                            <Grid item lg={8} className='forget_pwd_sub'>
                                 <OutlinedInput size='small' name='email' onChange={formik?.handleChange} />
+                                {formik.errors?.email && (
+                                    <FormHelperText htmlFor="form-selector" error={!!formik.errors?.email}>
+                                        {formik.errors?.email}
+                                    </FormHelperText>
+                                )}
                             </Grid>
                         </Grid>
-                        <Grid container sx={{ display: 'flex', mt: 2 }}>
+                        <Grid container sx={{ display: 'flex', mt: 2, justifyContent: 'space-between' }}>
                             <Grid item lg={4}>
                                 <Typography className='text_gray'>{t('key.password')}: <Typography variant='span' sx={{ color: 'red' }}>*</Typography></Typography>
                             </Grid>
-                            <Grid item lg={4}>
+                            <Grid item lg={8} className='forget_pwd_sub'>
                                 <OutlinedInput size='small' name='password' onChange={formik?.handleChange} />
+                                {formik.errors?.password && (
+                                    <FormHelperText htmlFor="form-selector" error={!!formik.errors?.password}>
+                                        {formik.errors?.password}
+                                    </FormHelperText>
+                                )}
                                 <Button variant='contained' type='submit'
                                     disabled={info?.loading}
                                     className='submit_format'>
@@ -76,11 +86,11 @@ const ForgotPassword = () => {
                             </Grid>
                         </Grid>
                     </Box>
-                    : <Grid container sx={{ display: 'flex', mt: 2 }}>
+                    : <Grid container sx={{ display: 'flex', mt: 2, justifyContent: 'space-between' }}>
                         <Grid item lg={4}>
                             <Typography className='text_gray'>{t('key.email')}: <Typography variant='span' sx={{ color: 'red' }}>*</Typography></Typography>
                         </Grid>
-                        <Grid item lg={4}>
+                        <Grid item lg={8} className='forget_pwd_sub'>
                             <OutlinedInput size='small' onChange={(e) => setInfo({ ...info, email: e?.target?.value })} />
                             <Button variant='contained' className='submit_format' disabled={info?.loading} onClick={handleForgotPasswordMail}>
                                 {info?.loading ? <CircularProgress size={20} /> : t('key.submit')}</Button>

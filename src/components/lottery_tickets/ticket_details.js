@@ -195,16 +195,19 @@ const LotteryTicketDetail = () => {
                                             }} />
                                     </Box>
                                 </Box>
-                                <Box className='lottery_banner_text'>
-                                    <Box className='lottery_extra_banner_amount'>
-                                        <PrizeConverter className={'lottery_length'} n={state?.lotteryById?.winningPrice} />
+                                <Box className='lottery_banner_container' sx={{ flexDirection: { xs: 'column', md: 'row' } }}>
+                                    <Box className='lottery_banner_text'>
+                                        <Box className='lottery_extra_banner_amount'>
+                                            <PrizeConverter className={'lottery_length'} n={state?.lotteryById?.winningPrice} />
+                                        </Box>
                                     </Box>
-                                </Box>
-                                <Box className='lottery_banner_timer_text'>
-                                    <CountDown
-                                        timeTillDate={state?.lotteryById?.endDate}
-                                        timeFormat="MM DD YYYY, h:mm a"
-                                    />
+                                    <Box className='lottery_banner_timer_text'>
+                                        {new Date(state?.lotteryById?.endDate) > new Date() ? <CountDown
+                                            date={state?.lotteryById?.endDate}
+                                        /> : <Box>
+                                            {`${t('message.waiting_msg')}`}
+                                        </Box>}
+                                    </Box>
                                 </Box>
                             </Box>
                         </Box>
@@ -286,24 +289,24 @@ const LotteryTicketDetail = () => {
                         <Box className='play-request-summary'>
                             <Box className='prize_section'>
                                 <Box className='purchase-details'>
-                                    <Typography className='price_text'>{t('key.ticket_price')} ({isSystematic?.isActive ? (isSystematic?.activeNumber) : (lines?.length)} X <PrizeConverter n={perLinesPrice} />)</Typography>
-                                    <Typography className='price_text'> <PrizeConverter n={subTotalCount} /></Typography>
+                                    <Box className='price_text'>{t('key.ticket_price')} ({isSystematic?.isActive ? (isSystematic?.activeNumber) : (lines?.length)} X <PrizeConverter n={perLinesPrice} />)</Box>
+                                    <Box className='price_text'> <PrizeConverter n={subTotalCount} /></Box>
                                 </Box>
                                 {authState?.settings?.setting?.serviceFee > 0 &&
                                     <Box className='purchase-details'>
-                                        <Typography className='price_text highlight'>{t('key.service_fee')} ({authState?.settings?.setting?.serviceFee} X <PrizeConverter n={subTotalCount} />)</Typography>
-                                        <Typography className='price_text highlight'> + <PrizeConverter n={serviceFee} /> </Typography>
+                                        <Box className='price_text highlight'>{t('key.service_fee')} ({authState?.settings?.setting?.serviceFee} X <PrizeConverter n={subTotalCount} />)</Box>
+                                        <Box className='price_text highlight'> + <PrizeConverter n={serviceFee} /> </Box>
                                     </Box>
                                 }
                                 {(authState?.settings?.setting?.referralDiscount > 0 && authState?.coupon) &&
                                     <Box className='purchase-details'>
                                         <Typography className='price_text highlight'>{t('key.discount')} ({`${authState?.settings?.setting?.referralDiscount}% service fee`})</Typography>
-                                        <Typography className='price_text highlight'> - <PrizeConverter n={discount} /></Typography>
+                                        <Box className='price_text highlight'> - <PrizeConverter n={discount} /></Box>
                                     </Box>
                                 }
                                 <Box className='purchase_details_total'>
                                     <Typography className='price_text'>{t('key.total')}</Typography>
-                                    <Typography className='price_text'><PrizeConverter n={totalCount} /></Typography>
+                                    <Box className='price_text'><PrizeConverter n={totalCount} /></Box>
                                 </Box>
                             </Box>
                             {/* <CalculateTicketAmount isSystematic={isSystematic} lines={lines} multiply={multiply} /> */}

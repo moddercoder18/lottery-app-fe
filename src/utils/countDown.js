@@ -45,9 +45,9 @@ const CountDownTimer = ({ date }) => {
         date ? (
             <div>
             {remainingTime.days > 0 ? (
-                <div style={{ color: '#000000' }}>{`${remainingTime.days}${remainingTime.days > 1 ? 'days' : 'day'} ${remainingTime.hours}: ${remainingTime.minutes}:${remainingTime.seconds}s`}</div>
+                <div className="counter__text">{`${remainingTime.days}${remainingTime.days > 1 ? ' days' : ' day'} ${remainingTime.hours}:${remainingTime.minutes}:${remainingTime.seconds}s`}</div>
             ) : (
-                <div style={{ color: '#000000' }}>{`${remainingTime.hours}:${remainingTime.minutes}:${remainingTime.seconds}s`}</div>
+                <div className="counter__text">{`${remainingTime.hours}:${remainingTime.minutes}:${remainingTime.seconds}s`}</div>
             )}
         </div>
         ) : <div></div>
