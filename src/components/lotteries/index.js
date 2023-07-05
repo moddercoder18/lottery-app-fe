@@ -71,7 +71,7 @@ const LotteriesList = () => {
 
   return (
     <>
-      <Box className='lottery__list__container' sx={{ width: '100%' }}>
+      <Box className='lottery__list__container' sx={{ width: '90%' }}>
         <Typography variant='h4' sx={{ mb: 3 }}>{t('titles.customer_lottery')} </Typography>
         {lotteryInfomation?.customerLotteries?.length > 0 ?
           <>
@@ -80,7 +80,7 @@ const LotteriesList = () => {
                 <Box className='lottery___menu___title'>
                   <Box className='section'>{t('titles.lottery_name')}</Box>
                   <Box className='section'>{t('titles.t_id')}</Box>
-                  <Box className='section'>{t('key.status')}</Box>
+                  <Box className='section' sx={{textAlign:'center'}}>{t('key.status')}</Box>
                 </Box>
               </AccordionDetails>
             </Accordion>
@@ -92,7 +92,7 @@ const LotteriesList = () => {
                     <Box className='lottery___menu'>
                       <Box className='section'>{cLottery?.lotteryId?.name}</Box>
                       <Box className='section'>{cLottery?.transactionId?._id}</Box>
-                      <Box className='section'>{firstCapital(cLottery?.status)}</Box>
+                      <Box className='section' sx={{ textAlign: 'center' }}>{firstCapital(cLottery?.status)}</Box>
                     </Box>
                   </AccordionSummary>
                   <AccordionDetails>

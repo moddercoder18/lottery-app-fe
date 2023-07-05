@@ -12,7 +12,7 @@
     }
   }
   .css-rtxwcq-MuiTableCell-root {
-    padding: 10px 20px !important;
+    padding: 10px 10px !important;
   }
   th {
     font-size: 16px;
@@ -130,6 +130,7 @@
         line-height: 0.66 !important;
       }
       .counter__text {
+        text-align: end;
         font-weight: 700;
         font-size: 20px;
       }
@@ -212,7 +213,7 @@
           align-items: center;
         }
         .lottery_banner_text {
-          width: 40%;
+          // width: 40%;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -388,7 +389,7 @@
     .play_button {
       border-radius: 80px;
       height: 31.33px;
-      padding: 0px 30px;
+      // padding: 0px 30px;
     }
     .prize_section {
       display: flex;

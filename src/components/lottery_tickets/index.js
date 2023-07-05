@@ -22,7 +22,10 @@ const LotteryTicket = () => {
   }, [dispatch])
 
   return (
-    <>
+    <Box sx={{
+      padding: { xs: '0', sm: '0', md: '0px 50px', lg: '0px 100px' },
+      display: 'flex', flexDirection: { xs: 'column-reverse', sm: 'column-reverse', md: 'row' }
+    }}>
       <Box className='lottery_container_table'>
         <Typography className='buy_ticket_online' >{t('key.title')}</Typography>
         <Typography className='buy_ticket_online_description' >{t('key.sub_title')}</Typography>
@@ -96,7 +99,7 @@ const LotteryTicket = () => {
           </Box>
         </Box>
       </Grid>
-    </>
+    </Box>
   )
 }
 export default Layout(LotteryTicket)

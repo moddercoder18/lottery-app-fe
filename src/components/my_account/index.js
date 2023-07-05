@@ -74,7 +74,7 @@ const MyAccount = () => {
         navigator?.clipboard?.writeText(userInfo?.userData?.coupon?.code)
     }
     return (
-        <>
+        <Box sx={{ width: '90%' }}>
             <Box className='container'>
                 <Typography variant='h4'>{t('key.my_account')}</Typography>
                 <Box className='account_conatainer'>
@@ -156,7 +156,7 @@ const MyAccount = () => {
                     </Paper>
                 </Box>
             </Box >
-        </>
+        </Box>
     )
 }
 

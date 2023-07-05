@@ -28,7 +28,7 @@ const WalletTransaction = () => {
 
     return (
         <>
-            <Box className='lottery__list__container' sx={{ width: '100%', mb: 2 }}>
+            <Box className='lottery__list__container' sx={{ width: '90%' }}>
                 <Typography variant='h5'>{t('titles.wallet_transaction')}</Typography>
                 {list?.loading ?
                     <Grid item className='loader_container'><CircularProgress size={100} /></Grid>

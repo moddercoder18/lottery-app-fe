@@ -19,7 +19,7 @@ const LotteryResult = () => {
 
     return (
         <>
-            <Box className='lottery__list__container' sx={{ mb: 4 }}>
+            <Box className='lottery__list__container' sx={{ p: 2 }}>
                 <Typography variant='h5' sx={{ fontWeight: 'bold' }}>{t('titles.lottery_result')}</Typography>
                 <Typography sx={{ mt: 4 }}>{t('titles.lottery_result_subtitle')}</Typography>
                 {state?.lotteriesResultLoading ?

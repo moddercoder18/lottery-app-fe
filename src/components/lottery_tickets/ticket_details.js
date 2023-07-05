@@ -3,6 +3,7 @@ import Layout from '../hoc/layout'
 import { Box, Button, Grid, Link, Typography, Checkbox, CircularProgress, OutlinedInput } from '@mui/material';
 import './index.scss'
 import LotteryCard from './lottery_card';
+import logo from '../../assets/images/lottery_logo.png'
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import CountDown from '../../utils/countDown'
 import { generateQuickPicArray } from '../../utils/helper';
@@ -180,144 +181,149 @@ const LotteryTicketDetail = () => {
                 <Grid className='loader_container'>
                     <CircularProgress size={100} />
                 </Grid>
-                : <Grid className='lottery_details_container'>
-                    <Typography className='lottery_details_container_heading'>{t('key.play')} {state?.lotteryById?.name}</Typography>
-                    <BannerImages /> {/* show banner images*/}
-                    <Grid className='lottery-card-holder'>
-                        <Box className='lottery_card_container' sx={state?.lotteryById?.backgroundColor ? { backgroundColor: state?.lotteryById?.backgroundColor } : { backgroundColor: '#76a7f1' }}>
-                            <Box className='lottery_banner_card_container'>
-                                <Box sx={{ width: '30%' }}>
-                                    <Box className='lottery_extra_banner'>
-                                        <Box component={'img'} alt='image_section' src={state?.lotteryById?.image}
-                                            onError={(event) => {
-                                                event.target.src = 'https://www.thelotter.com/objects/dm.tlo?id=29424&v=20230402';
-                                                event.onerror = null;
-                                            }} />
-                                    </Box>
-                                </Box>
-                                <Box className='lottery_banner_container' sx={{ flexDirection: { xs: 'column', md: 'row' } }}>
-                                    <Box className='lottery_banner_text'>
-                                        <Box className='lottery_extra_banner_amount'>
-                                            <PrizeConverter className={'lottery_length'} n={state?.lotteryById?.winningPrice} />
+                : <Grid className='lottery_details_container' sx={{ display: { xs: 'block', md: 'flex' } }}>
+                    <Box sx={{ width: { xs: 0, md: '25%' }, display: { xs: 'none', md: 'inline-block' } }} >
+                        <Box component={'img'} width={'100%'} height={'209px'} sx={{objectFit:'cover'}} src={logo} />
+                    </Box>
+                    <Box sx={{ width: { xs: '100%', md: '75%' } }}>
+                        <Typography className='lottery_details_container_heading'>{t('key.play')} {state?.lotteryById?.name}</Typography>
+                        <BannerImages /> {/* show banner images*/}
+                        <Grid className='lottery-card-holder'>
+                            <Box className='lottery_card_container' sx={state?.lotteryById?.backgroundColor ? { backgroundColor: state?.lotteryById?.backgroundColor } : { backgroundColor: '#76a7f1' }}>
+                                <Box className='lottery_banner_card_container'>
+                                    <Box sx={{ width: '30%' }}>
+                                        <Box className='lottery_extra_banner'>
+                                            <Box component={'img'} alt='image_section' src={state?.lotteryById?.image}
+                                                onError={(event) => {
+                                                    event.target.src = 'https://www.thelotter.com/objects/dm.tlo?id=29424&v=20230402';
+                                                    event.onerror = null;
+                                                }} />
                                         </Box>
                                     </Box>
-                                    <Box className='lottery_banner_timer_text'>
-                                        {new Date(state?.lotteryById?.endDate) > new Date() ? <CountDown
-                                            date={state?.lotteryById?.endDate}
-                                        /> : <Box>
-                                            {`${t('message.waiting_msg')}`}
-                                        </Box>}
+                                    <Box className='lottery_banner_container' sx={{ flexDirection: { xs: 'column', md: 'row' } }}>
+                                        <Box className='lottery_banner_text'>
+                                            <Box className='lottery_extra_banner_amount'>
+                                                <PrizeConverter className={'lottery_length'} n={state?.lotteryById?.winningPrice} />
+                                            </Box>
+                                        </Box>
+                                        <Box className='lottery_banner_timer_text'>
+                                            {new Date(state?.lotteryById?.endDate) > new Date() ? <CountDown
+                                                date={state?.lotteryById?.endDate}
+                                            /> : <Box>
+                                                {`${t('message.waiting_msg')}`}
+                                            </Box>}
+                                        </Box>
                                     </Box>
                                 </Box>
                             </Box>
-                        </Box>
-                    </Grid>
-                    <Grid>
-                        <Grid className='quick_pick_tabs'>
-                            <Box className='quick_pick_tabs_List'>
-                            </Box>
-                            {authState?.settings?.setting?.enableCustomerPickNumber && <Box className='quick_pick_actions'>
-                                <Button variant='outlined' className='quick_pick_button' onClick={() => completeQuickSearch('add')}>{t('key.quick_pick')}</Button>
-                                <Link className='quick_pick_button_delete' onClick={() => completeQuickSearch('remove')}><DeleteForeverIcon fontSize='small' className='pointer' /></Link>
+                        </Grid>
+                        <Grid>
+                            <Grid className='quick_pick_tabs'>
+                                <Box className='quick_pick_tabs_List'>
+                                </Box>
+                                {authState?.settings?.setting?.enableCustomerPickNumber && <Box className='quick_pick_actions'>
+                                    <Button variant='outlined' className='quick_pick_button' onClick={() => completeQuickSearch('add')}>{t('key.quick_pick')}</Button>
+                                    <Link className='quick_pick_button_delete' onClick={() => completeQuickSearch('remove')}><DeleteForeverIcon fontSize='small' className='pointer' /></Link>
+                                </Box>}
+                            </Grid>
+                            <Grid className='ticket_card_list'>
+                                <Box className='ticket_lines_list'>
+                                    {linesList?.map((i) => {
+                                        return <Typography sx={{ pl: 2 }} key={i?.value} className={(lines?.length === i?.value) || (isSystematic?.isActive && i?.value === 'Systematic') ? 'active_tab' : ''}
+                                            onClick={() => handleLines(i?.value)} >{i?.label}</Typography>
+                                    })}
+                                </Box>
+                                <Box sx={{ mt: 2, display: 'flex', flexWrap: 'wrap' }}>
+                                    {isSystematic?.isActive ? <SystematicLotteryCard
+                                        numbers={state?.lotteryById?.numbersPerLine?.totalShowNumber}
+                                        powerNumbers={state?.lotteryById?.numbersPerLine?.totalShowPowerNumber}
+                                        isSystematic={isSystematic}
+                                        setSystematic={setSystematic}
+                                        ticketLines={state?.lotteryById?.ticketLines}
+                                    /> :
+                                        <>
+                                            {lines?.map(({ numbers, powerNumbers }, index) => <LotteryCard
+                                                key={index}
+                                                index={index + 1}
+                                                onMouseEnter={() => onMouseHandle(index + 1, true)}
+                                                onMouseLeave={() => onMouseHandle(null, false)}
+                                                activeCard={activeCard}
+                                                numberCount={state?.lotteryById?.numbersPerLine?.totalShowNumber}
+                                                powerNumberCount={state?.lotteryById?.numbersPerLine?.totalShowPowerNumber}
+                                                maxSelectNumberCount={state?.lotteryById?.numbersPerLine?.maxSelectTotalNumber}
+                                                maxSelectPowerNumberCount={state?.lotteryById?.numbersPerLine?.maxSelectTotalPowerNumber}
+                                                ticket={{ numbers, powerNumbers }}
+                                                singleQuickSearch={singleQuickSearch}
+                                                lineQuickSearch={lineQuickSearch}
+                                            />)}
+                                        </>
+                                    }
+                                </Box>
+                            </Grid>
+                            {state?.lotteryById?.multiplier > 1 && <Box className='inner_option'>
+                                <Box className='power_play__section'>
+                                    <Box className='power_play'>
+                                        <Checkbox className="term-checkbox" name='multiple' onChange={(e) => setMultiply({ isActive: e?.target?.checked })} />
+                                        <Box sx={{ display: 'flex' }}>Multiply your prize up to {state?.lotteryById?.multiplier} times for <PrizeConverter n={state?.lotteryById?.multiplierPricePerLine} /> per line</Box>
+                                    </Box>
+                                </Box>
                             </Box>}
-                        </Grid>
-                        <Grid className='ticket_card_list'>
-                            <Box className='ticket_lines_list'>
-                                {linesList?.map((i) => {
-                                    return <Typography sx={{ pl: 2 }} key={i?.value} className={(lines?.length === i?.value) || (isSystematic?.isActive && i?.value === 'Systematic') ? 'active_tab' : ''}
-                                        onClick={() => handleLines(i?.value)} >{i?.label}</Typography>
-                                })}
-                            </Box>
-                            <Box sx={{ mt: 2, display: 'flex', flexWrap: 'wrap' }}>
-                                {isSystematic?.isActive ? <SystematicLotteryCard
-                                    numbers={state?.lotteryById?.numbersPerLine?.totalShowNumber}
-                                    powerNumbers={state?.lotteryById?.numbersPerLine?.totalShowPowerNumber}
-                                    isSystematic={isSystematic}
-                                    setSystematic={setSystematic}
-                                    ticketLines={state?.lotteryById?.ticketLines}
-                                /> :
-                                    <>
-                                        {lines?.map(({ numbers, powerNumbers }, index) => <LotteryCard
-                                            key={index}
-                                            index={index + 1}
-                                            onMouseEnter={() => onMouseHandle(index + 1, true)}
-                                            onMouseLeave={() => onMouseHandle(null, false)}
-                                            activeCard={activeCard}
-                                            numberCount={state?.lotteryById?.numbersPerLine?.totalShowNumber}
-                                            powerNumberCount={state?.lotteryById?.numbersPerLine?.totalShowPowerNumber}
-                                            maxSelectNumberCount={state?.lotteryById?.numbersPerLine?.maxSelectTotalNumber}
-                                            maxSelectPowerNumberCount={state?.lotteryById?.numbersPerLine?.maxSelectTotalPowerNumber}
-                                            ticket={{ numbers, powerNumbers }}
-                                            singleQuickSearch={singleQuickSearch}
-                                            lineQuickSearch={lineQuickSearch}
-                                        />)}
-                                    </>
-                                }
-                            </Box>
-                        </Grid>
-                        {state?.lotteryById?.multiplier > 1 && <Box className='inner_option'>
-                            <Box className='power_play__section'>
-                                <Box className='power_play'>
-                                    <Checkbox className="term-checkbox" name='multiple' onChange={(e) => setMultiply({ isActive: e?.target?.checked })} />
-                                    <Box sx={{ display: 'flex' }}>Multiply your prize up to {state?.lotteryById?.multiplier} times for <PrizeConverter n={state?.lotteryById?.multiplierPricePerLine} /> per line</Box>
-                                </Box>
-                            </Box>
-                        </Box>}
 
-                        {/* show Entry types section*/}
-                        <EntryType entryType={entryType} setEntryType={setEntryType} lines={lines} />
-                        <Box className='play-request-summary'>
-                            <Box component={"form"} noValidate onSubmit={formik?.handleSubmit}>
-                                <Box className='coupon_div'>
-                                    <Box>
-                                        <OutlinedInput
-                                            placeholder={t('coupon.coupon_placeholder')}
-                                            value={formik?.values?.coupon}
-                                            size="small"
-                                            name="coupon"
-                                            onChange={formik?.handleChange}
-                                        />
-                                    </Box>
-                                    <Box className='actions__row'>
-                                        <Button type='submit' variant='contained' disabled={!formik?.values?.coupon} color='primary'>
-                                            {authState?.couponLoading ? <CircularProgress size={30} color='inherit' /> : t('coupon.apply_coupon')}
-                                        </Button>
+                            {/* show Entry types section*/}
+                            <EntryType entryType={entryType} setEntryType={setEntryType} lines={lines} />
+                            <Box className='play-request-summary'>
+                                <Box component={"form"} noValidate onSubmit={formik?.handleSubmit}>
+                                    <Box className='coupon_div'>
+                                        <Box>
+                                            <OutlinedInput
+                                                placeholder={t('coupon.coupon_placeholder')}
+                                                value={formik?.values?.coupon}
+                                                size="small"
+                                                name="coupon"
+                                                onChange={formik?.handleChange}
+                                            />
+                                        </Box>
+                                        <Box className='actions__row'>
+                                            <Button type='submit' variant='contained' disabled={!formik?.values?.coupon} color='primary'>
+                                                {authState?.couponLoading ? <CircularProgress size={30} color='inherit' /> : t('coupon.apply_coupon')}
+                                            </Button>
+                                        </Box>
                                     </Box>
                                 </Box>
                             </Box>
-                        </Box>
-                        <Box className='play-request-summary'>
-                            <Box className='prize_section'>
-                                <Box className='purchase-details'>
-                                    <Box className='price_text'>{t('key.ticket_price')} ({isSystematic?.isActive ? (isSystematic?.activeNumber) : (lines?.length)} X <PrizeConverter n={perLinesPrice} />)</Box>
-                                    <Box className='price_text'> <PrizeConverter n={subTotalCount} /></Box>
-                                </Box>
-                                {authState?.settings?.setting?.serviceFee > 0 &&
+                            <Box className='play-request-summary'>
+                                <Box className='prize_section'>
                                     <Box className='purchase-details'>
-                                        <Box className='price_text highlight'>{t('key.service_fee')} ({authState?.settings?.setting?.serviceFee} X <PrizeConverter n={subTotalCount} />)</Box>
-                                        <Box className='price_text highlight'> + <PrizeConverter n={serviceFee} /> </Box>
+                                        <Box className='price_text'>{t('key.ticket_price')} ({isSystematic?.isActive ? (isSystematic?.activeNumber) : (lines?.length)} X <PrizeConverter n={perLinesPrice} />)</Box>
+                                        <Box className='price_text'> <PrizeConverter n={subTotalCount} /></Box>
                                     </Box>
-                                }
-                                {(authState?.settings?.setting?.referralDiscount > 0 && authState?.coupon) &&
-                                    <Box className='purchase-details'>
-                                        <Typography className='price_text highlight'>{t('key.discount')} ({`${authState?.settings?.setting?.referralDiscount}% service fee`})</Typography>
-                                        <Box className='price_text highlight'> - <PrizeConverter n={discount} /></Box>
+                                    {authState?.settings?.setting?.serviceFee > 0 &&
+                                        <Box className='purchase-details'>
+                                            <Box className='price_text highlight'>{t('key.service_fee')} ({authState?.settings?.setting?.serviceFee} X <PrizeConverter n={subTotalCount} />)</Box>
+                                            <Box className='price_text highlight'> + <PrizeConverter n={serviceFee} /> </Box>
+                                        </Box>
+                                    }
+                                    {(authState?.settings?.setting?.referralDiscount > 0 && authState?.coupon) &&
+                                        <Box className='purchase-details'>
+                                            <Typography className='price_text highlight'>{t('key.discount')} ({`${authState?.settings?.setting?.referralDiscount}% service fee`})</Typography>
+                                            <Box className='price_text highlight'> - <PrizeConverter n={discount} /></Box>
+                                        </Box>
+                                    }
+                                    <Box className='purchase_details_total'>
+                                        <Typography className='price_text'>{t('key.total')}</Typography>
+                                        <Box className='price_text'><PrizeConverter n={totalCount} /></Box>
                                     </Box>
-                                }
-                                <Box className='purchase_details_total'>
-                                    <Typography className='price_text'>{t('key.total')}</Typography>
-                                    <Box className='price_text'><PrizeConverter n={totalCount} /></Box>
                                 </Box>
+                                {/* <CalculateTicketAmount isSystematic={isSystematic} lines={lines} multiply={multiply} /> */}
+                                <Button variant='contained' className='play_button' onClick={() => handleSubmitTicket()}>{t('key.play')}</Button>
                             </Box>
-                            {/* <CalculateTicketAmount isSystematic={isSystematic} lines={lines} multiply={multiply} /> */}
-                            <Button variant='contained' className='play_button' onClick={() => handleSubmitTicket()}>{t('key.play')}</Button>
-                        </Box>
-                        <Grid className='description_section'>
-                            <Box className='description_section_text'>
-                                <Box dangerouslySetInnerHTML={{ __html: `${t(state?.dynamicContent?.content[window.localStorage.getItem('language') || 'en'])}` }}></Box>
-                            </Box>
+                            <Grid className='description_section'>
+                                <Box className='description_section_text'>
+                                    <Box dangerouslySetInnerHTML={{ __html: `${t(state?.dynamicContent?.content[window.localStorage.getItem('language') || 'en'])}` }}></Box>
+                                </Box>
+                            </Grid>
                         </Grid>
-                    </Grid>
+                    </Box>
                     <PaypalIntegration isShow={!!isShow?.paypal}
                         tickets={lines}
                         totalCount={totalCount}
